@@ -1,0 +1,681 @@
+"'Visualizador de Acta' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnHidden: |-
+        =UpdateContext({mostrar_mensaje: false});
+    OnVisible: |
+        =If(!IsBlank(Param("ActaID")) && !ingreso ,UpdateContext({acta_selecciona: LookUp('Demo Actas de Visita',ID = Value(Param("ActaID"))), ingreso : true }));
+        ClearCollect(nuevas_tareas,Filter('Demo Asignaciones', 'ID de Acta' = acta_selecciona.ID))
+
+    "'Acta de Visita_1' As fluidGrid.fluidGridWithBlankCard":
+        BorderThickness: =0
+        Height: =980
+        Width: =Parent.Width
+        Y: =99
+        ZIndex: =3
+
+        "'Información General_1' As dataCard":
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =265
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            TextInput1_16 As text:
+                Align: =Align.Center
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Colaborador"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =200
+                X: =100
+                Y: =40
+                ZIndex: =1
+
+            TextInput1_19 As text:
+                Align: =Align.Center
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Cliente"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =200
+                X: =100
+                Y: =120
+                ZIndex: =2
+
+            TextInput1_17 As text:
+                Align: =Align.Center
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Fecha"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =200
+                X: =697.5
+                Y: =40
+                ZIndex: =3
+
+            TextInput1_20 As text:
+                Align: =Align.Center
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Estado de Acta"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =200
+                X: =697
+                Y: =120
+                ZIndex: =4
+
+            TextInput1_18 As text:
+                Align: =Align.Center
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Participantes"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =70
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =200
+                X: =1295
+                Y: =40
+                ZIndex: =5
+
+            TextInput3_6 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: =acta_selecciona.'Creador de Acta'.DisplayName
+                DisabledColor: =AppFont.Color
+                DisplayMode: =DisplayMode.Disabled
+                FocusedBorderThickness: =1
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =325
+                X: =300
+                Y: =40
+                ZIndex: =6
+
+            TextInput3_7 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: =Text(acta_selecciona.'Fecha de Acta',"dd/mm/yyyy")
+                DisabledColor: =AppFont.Color
+                DisplayMode: =DisplayMode.Disabled
+                FocusedBorderThickness: =1
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =325
+                X: =897
+                Y: =40
+                ZIndex: =7
+
+            TextInput3_9 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: =acta_selecciona.'Estado de Acta'.Value
+                DisabledColor: =AppFont.Color
+                DisplayMode: =DisplayMode.Disabled
+                FocusedBorderThickness: =1
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =325
+                X: =897
+                Y: =120
+                ZIndex: =8
+
+            TextInput3_8 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: =acta_selecciona.Participantes
+                DisabledColor: =AppFont.Color
+                DisplayMode: =DisplayMode.Disabled
+                FocusedBorderThickness: =1
+                Height: =70
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Color
+                HoverFill: =Self.Fill
+                Mode: =TextMode.MultiLine
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =325
+                X: =1495
+                Y: =40
+                ZIndex: =9
+
+            ComboBox1_1 As combobox:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                ChevronBackground: =Color1.Fill
+                ChevronFill: =Color2.Fill
+                ChevronHoverBackground: =Self.ChevronBackground
+                ChevronHoverFill: =Self.ChevronFill
+                Color: =Color2.Fill
+                DefaultSelectedItems: =LookUp('Demo Cliente', ID =acta_selecciona.'ID de Cliente')
+                DisabledColor: =AppFont.Color
+                DisplayFields: =["Title","Identificaci_x00f3_n"]
+                DisplayMode: =DisplayMode.Disabled
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Color2.Fill
+                HoverFill: =Color3.Fill
+                InputTextPlaceholder: ="Seleccione Cliente"
+                Items: =SortByColumns('Demo Cliente',"Title")
+                SearchFields: =["Title"]
+                SearchItems: =Search(SortByColumns('Demo Cliente',"Title"),ComboBox1_1.SearchText,"Title")
+                SelectionFill: =Color1.Fill
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Double
+                Width: =325
+                X: =300
+                Y: =120
+                ZIndex: =10
+
+            TextInput3_10 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: =ComboBox1_1.Selected.Identificación
+                DisabledColor: =AppFont.Color
+                DisplayMode: =DisplayMode.Disabled
+                FocusedBorderThickness: =1
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =325
+                X: =300
+                Y: =175
+                ZIndex: =11
+
+            TextInput1_21 As text:
+                Align: =Align.Center
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="RUC"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =200
+                X: =100
+                Y: =175
+                ZIndex: =12
+
+        "'Temas Tratados_1' As dataCard.blankCard":
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =553
+            Width: =1920
+            X: =0
+            Y: =1
+            ZIndex: =2
+
+            RichTextEditor1_1 As richTextEditor:
+                BorderColor: =Color3.Fill
+                Default: =acta_selecciona.'Temas Tratados'
+                DisplayMode: =DisplayMode.View
+                Height: =455
+                Size: =12
+                Width: =1720
+                X: =100
+                Y: =54
+                ZIndex: =1
+
+            TextInput1_22 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Temas Tratados"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =1720
+                X: =100
+                Y: =4
+                ZIndex: =2
+
+        Asignaciones_1 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Gallery1_1.Height + 140
+            Width: =1920
+            X: =0
+            Y: =2
+            ZIndex: =3
+
+            TextInput1_24 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Tareas / Asignaciones"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =1720
+                X: =100
+                Y: =4
+                ZIndex: =5
+
+            "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                Height: =CountRows(Self.AllItems)*Self.TemplateHeight
+                Items: =nuevas_tareas
+                Layout: =Layout.Vertical
+                TemplatePadding: =0
+                TemplateSize: =60
+                Width: =1787
+                X: =100
+                Y: =100
+                ZIndex: =6
+
+                Label4_1 As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Nombre de la Tarea'
+                    X: =40
+                    Y: =10
+                    ZIndex: =1
+
+                TextInput3_11 As text:
+                    BorderColor: =Color3.Fill
+                    BorderThickness: =1
+                    Color: =AppFont.Color
+                    Default: =ThisItem.'Nombre de la Tarea'
+                    DisabledColor: =AppFont.Color
+                    DisplayMode: =DisplayMode.Disabled
+                    FocusedBorderThickness: =1
+                    Height: =60
+                    HoverBorderColor: =Color3.Fill
+                    HoverColor: =Color
+                    HoverFill: =Self.Fill
+                    Mode: =TextMode.MultiLine
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Width: =500
+                    ZIndex: =2
+
+                ComboBox1_3 As combobox:
+                    BorderColor: =Color3.Fill
+                    BorderThickness: =1
+                    ChevronBackground: =Color1.Fill
+                    ChevronFill: =Color2.Fill
+                    ChevronHoverBackground: =Self.ChevronBackground
+                    ChevronHoverFill: =Self.ChevronFill
+                    Color: =AppFont.Color
+                    DefaultSelectedItems: =ThisItem.Asignado
+                    DisabledColor: =AppFont.Color
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =60
+                    HoverColor: =Color2.Fill
+                    HoverFill: =Color3.Fill
+                    InputTextPlaceholder: ="Responsable"
+                    Items: =Choices([@'Demo Configuraciones'].Usuario)
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices('Demo Configuraciones'.Usuario,ComboBox1_3.SearchText)
+                    SelectionFill: =Color1.Fill
+                    SelectMultiple: =false
+                    Template: =ListItemTemplate.Person
+                    Width: =300
+                    X: =800
+                    ZIndex: =3
+
+                DatePicker1_1 As datepicker:
+                    BorderColor: =Color3.Fill
+                    BorderThickness: =1
+                    Color: =AppFont.Color
+                    DefaultDate: =ThisItem.'Fecha Límite'
+                    DisabledColor: =AppFont.Color
+                    DisplayMode: =DisplayMode.Disabled
+                    FocusedBorderThickness: =
+                    Font: =AppFont.Font
+                    Format: ="dd/mm/yyyy"
+                    Height: =60
+                    IconBackground: =Color1.Fill
+                    IconFill: =Color2.Fill
+                    InputTextPlaceholder: =
+                    OnSelect: =Select(Parent)
+                    Width: =300
+                    X: =500
+                    ZIndex: =4
+
+                ComboBox1_4 As combobox:
+                    BorderColor: =Color3.Fill
+                    BorderThickness: =1
+                    ChevronBackground: =Color1.Fill
+                    ChevronFill: =Color2.Fill
+                    ChevronHoverBackground: =Self.ChevronBackground
+                    ChevronHoverFill: =Self.ChevronFill
+                    Color: =AppFont.Color
+                    DefaultSelectedItems: =ThisItem.'Estado de la Tarea'
+                    DisabledColor: =AppFont.Color
+                    DisplayFields: =["Value","Email","Picture"]
+                    DisplayMode: =If(ThisItem.'Estado de la Tarea'.Value <> "Completado" && ThisItem.Asignado.Email = usuario.Email , DisplayMode.Edit,DisplayMode.Disabled)
+                    Height: =60
+                    HoverColor: =Color2.Fill
+                    HoverFill: =Color3.Fill
+                    InputTextPlaceholder: =
+                    Items: =Choices([@'Demo Asignaciones'].'Estado de la Tarea')
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices('Demo Asignaciones'.'Estado de la Tarea',ComboBox1_4.SearchText)
+                    SelectionFill: =Color1.Fill
+                    SelectMultiple: =false
+                    Width: =300
+                    X: =1100
+                    ZIndex: =5
+
+                TextInput3_12 As text:
+                    BorderColor: =Color3.Fill
+                    BorderThickness: =1
+                    Color: =AppFont.Color
+                    Default: =ThisItem.Observación
+                    DisabledColor: =AppFont.Color
+                    DisplayMode: =If(ThisItem.'Estado de la Tarea'.Value <> "Completado" && ThisItem.Asignado.Email = usuario.Email , DisplayMode.Edit,DisplayMode.Disabled)
+                    FocusedBorderThickness: =1
+                    Height: =60
+                    HoverBorderColor: =Color3.Fill
+                    HoverColor: =Color
+                    HoverFill: =Self.Fill
+                    Mode: =TextMode.MultiLine
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    X: =1400
+                    ZIndex: =6
+
+                Icon4 As icon.Save:
+                    Color: =ColorSuccess.Fill
+                    DisplayMode: |-
+                        =If(
+                            IsBlank(ComboBox1_4.Selected),
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Height: =50
+                    Icon: =Icon.Save
+                    OnSelect: |-
+                        =Patch(
+                            'Demo Asignaciones',
+                            LookUp(
+                                'Demo Asignaciones',
+                                ThisItem.ID = ID
+                            ),
+                            {
+                                'Estado de la Tarea': ComboBox1_4.Selected,
+                                Observación: TextInput3_12.Text,
+                                'Fecha de Finalización': If(
+                                    ComboBox1_4.Selected.Value = "Completado",
+                                    Now()
+                                )
+                            }
+                        )
+                    Visible: =ThisItem.'Estado de la Tarea'.Value <> "Completado" && ThisItem.Asignado.Email = usuario.Email
+                    X: =1720
+                    Y: =5
+                    ZIndex: =7
+
+            TextInput1_23 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Detalle"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =500
+                X: =100
+                Y: =54
+                ZIndex: =7
+
+            TextInput1_25 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Fecha Límite"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =300
+                X: =600
+                Y: =54
+                ZIndex: =8
+
+            TextInput1_26 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Responsable"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =300
+                X: =900
+                Y: =54
+                ZIndex: =9
+
+            TextInput1_27 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Estado"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Width: =300
+                X: =1200
+                Y: =54
+                ZIndex: =10
+
+            TextInput1_28 As text:
+                BorderColor: =Color3.Fill
+                BorderThickness: =1
+                Color: =Color2.Fill
+                Default: ="Observación"
+                Fill: =Color1.Fill
+                FocusedBorderThickness: =0
+                Font: =AppFont.Font
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                HoverBorderColor: =Self.BorderColor
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                X: =1500
+                Y: =54
+                ZIndex: =11
+
+    TextInput1_15 As text:
+        Align: =Align.Center
+        BorderThickness: =0
+        Color: =Color2.Fill
+        Default: =acta_selecciona.'Número de Acta'
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =99
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Color2.Fill
+        HoverFill: =Self.Fill
+        Size: =35
+        Width: =1920
+        ZIndex: =4
+
+    Icon1_2 As icon.BackArrow:
+        Color: =Color2.Fill
+        Icon: =Icon.BackArrow
+        OnSelect: =If(!IsBlank(Param("ActaID")) && ingreso, Navigate('Mis Tareas'),Back())
+        X: =23
+        Y: =17
+        ZIndex: =5
+

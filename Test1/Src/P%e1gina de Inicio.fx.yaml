@@ -1,0 +1,85 @@
+"'Página de Inicio' As screen":
+
+    Button1 As button:
+        BorderColor: =Color3.Fill
+        BorderThickness: =3
+        Color: =Color2.Fill
+        Fill: =Color1.Fill
+        Font: =AppFont.Font
+        Height: =150
+        HoverColor: =Color2.Fill
+        HoverFill: =ColorFade(Color1.Fill, -20%)
+        OnSelect: =Navigate('Ingreso de Nueva Acta')
+        PaddingRight: =7.03
+        PaddingTop: =7.03
+        Size: =21.08
+        Text: ="Nueva Acta"
+        Width: =400
+        X: =150
+        Y: =616
+        ZIndex: =2
+
+    Button1_1 As button:
+        BorderColor: =Color3.Fill
+        BorderThickness: =3
+        Color: =Color2.Fill
+        Fill: =Color1.Fill
+        Font: =AppFont.Font
+        Height: =150
+        HoverColor: =Color2.Fill
+        HoverFill: =ColorFade(Color1.Fill, -20%)
+        OnSelect: =Navigate('Mis Actas')
+        PaddingRight: =7.03
+        PaddingTop: =7.03
+        Size: =21.08
+        Text: ="Mis Actas"
+        Width: =400
+        X: =760
+        Y: =616
+        ZIndex: =3
+
+    Button1_2 As button:
+        BorderColor: =Color3.Fill
+        BorderThickness: =3
+        Color: =Color2.Fill
+        Fill: =Color1.Fill
+        Font: =AppFont.Font
+        Height: =150
+        HoverColor: =Color2.Fill
+        HoverFill: =ColorFade(Color1.Fill, -20%)
+        OnSelect: =Navigate('Mis Tareas')
+        PaddingRight: =7.03
+        PaddingTop: =7.03
+        Size: =21.08
+        Text: ="Mis Tareas"
+        Width: =400
+        X: =1370
+        Y: =616
+        ZIndex: =4
+
+    Image2 As image:
+        Height: =304
+        Image: =Logo.Image
+        Width: =811
+        X: =559
+        Y: =90
+        ZIndex: =5
+
+    TextInput1 As text:
+        Align: =Align.Center
+        BorderThickness: =0
+        Color: =Color2.Fill
+        Default: ="Actas de Visitas"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =80
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Size: =35
+        Width: =1920
+        Y: =438
+        ZIndex: =6
+

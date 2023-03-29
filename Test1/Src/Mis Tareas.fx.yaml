@@ -1,0 +1,306 @@
+"'Mis Tareas' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnHidden: |-
+        =UpdateContext({mostrar_mensaje: false});
+    OnVisible: =ClearCollect(mis_tareas, Filter('Demo Asignaciones',Asignado.Email = usuario.Email))
+
+    TextInput1_35 As text:
+        Align: =Align.Center
+        BorderThickness: =0
+        Color: =Color2.Fill
+        Default: ="Mis Tareas"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =99
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Size: =35
+        Width: =1920
+        ZIndex: =4
+
+    Icon1_3 As icon.BackArrow:
+        Color: =Color2.Fill
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Página de Inicio')
+        X: =23
+        Y: =17
+        ZIndex: =5
+
+    "Gallery2_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =930
+        Items: =mis_tareas
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =101
+        Width: =1920
+        Y: =149
+        ZIndex: =6
+
+        Title2_1 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =LookUp('Demo Actas de Visita', ID =ThisItem.'ID de Acta').'Número de Acta'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            Y: =1
+            ZIndex: =2
+
+        Subtitle2_5 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Nombre de la Tarea'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =460
+            X: =300
+            Y: =1
+            ZIndex: =3
+
+        NextArrow2_1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =AppFont.Color
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Navigate('Visualizador de Acta',ScreenTransition.Cover, {acta_selecciona: LookUp('Demo Actas de Visita', ID = ThisItem.'ID de Acta') })
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator2_1 As rectangle:
+            BorderColor: =Color1.Fill
+            Fill: =Color1.Fill
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle2_4 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(ThisItem.'Fecha de Inicio', "dd/mm/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =250
+            X: =1350
+            Y: =1
+            ZIndex: =6
+
+        Subtitle2_7 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Creador de Asignación'.DisplayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =350
+            X: =1000
+            ZIndex: =8
+
+        Subtitle2_8 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Estado de la Tarea'.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =240
+            X: =760
+            Y: =1
+            ZIndex: =9
+
+        Subtitle2_6 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(ThisItem.'Fecha Límite', "dd/mm/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =250
+            X: =1600
+            Y: =1
+            ZIndex: =10
+
+    TextInput1_36 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Número de Acta"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =300
+        Y: =99
+        ZIndex: =7
+
+    TextInput1_37 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Detalle"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =460
+        X: =300
+        Y: =99
+        ZIndex: =8
+
+    TextInput1_38 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Estado"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =240
+        X: =760
+        Y: =99
+        ZIndex: =9
+
+    TextInput1_39 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Asignado Por"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =350
+        X: =1000
+        Y: =99
+        ZIndex: =10
+
+    TextInput1_40 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Fecha de Inicio"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =250
+        X: =1350
+        Y: =99
+        ZIndex: =11
+
+    TextInput1_41 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: =""
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =70
+        X: =1850
+        Y: =99
+        ZIndex: =12
+
+    TextInput1_42 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Fecha Límite"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =250
+        X: =1600
+        Y: =99
+        ZIndex: =13
+

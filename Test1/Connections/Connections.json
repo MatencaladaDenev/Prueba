@@ -1,0 +1,42 @@
+{
+  "bad9861c-25d5-4f9a-9580-54a11a95f3a8": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3210/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://denevcorp.sharepoint.com/sites/Listas": {
+        "dataSources": {
+          "Demo Actas de Visita": {
+            "tableName": "b97e783f-4223-4d24-8963-6f07a10fa10f"
+          },
+          "Demo Asignaciones": {
+            "tableName": "fea47b23-f282-47ac-9487-c8f434692ee2"
+          },
+          "Demo Cliente": {
+            "tableName": "dc1dfef2-ebbc-40da-b00c-3730183b3ac9"
+          },
+          "Demo Configuraciones": {
+            "tableName": "d7174d8c-6a3b-458b-bd87-16ab7d09f914"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Demo Asignaciones",
+      "Demo Cliente",
+      "Demo Configuraciones",
+      "Demo Actas de Visita"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "bad9861c-25d5-4f9a-9580-54a11a95f3a8"
+  }
+}

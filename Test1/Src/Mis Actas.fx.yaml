@@ -1,0 +1,270 @@
+"'Mis Actas' As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnHidden: |-
+        =UpdateContext({mostrar_mensaje: false});
+    OnVisible: =ClearCollect(mis_actas, Filter('Demo Actas de Visita','Creador de Acta'.Email = usuario.Email))
+
+    TextInput1_14 As text:
+        Align: =Align.Center
+        BorderThickness: =0
+        Color: =Color2.Fill
+        Default: ="Mis Actas de Visita"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =99
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Size: =35
+        Width: =1920
+        ZIndex: =4
+
+    Icon1_1 As icon.BackArrow:
+        Color: =Color2.Fill
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Página de Inicio')
+        X: =23
+        Y: =17
+        ZIndex: =5
+
+    "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =930
+        Items: =mis_actas
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =101
+        Width: =1920
+        Y: =149
+        ZIndex: =6
+
+        Title2 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Número de Acta'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            Y: =5
+            ZIndex: =2
+
+        Subtitle2 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =LookUp('Demo Cliente', ID = ThisItem.'ID de Cliente').'Nombre del Cliente'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =400
+            X: =300
+            Y: =5
+            ZIndex: =3
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =AppFont.Color
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Navigate('Visualizador de Acta',ScreenTransition.Cover, {acta_selecciona: ThisItem})
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator2 As rectangle:
+            BorderColor: =Color1.Fill
+            Fill: =Color1.Fill
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle2_1 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(ThisItem.'Fecha de Acta', "dd/mm/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =350
+            X: =700
+            Y: =5
+            ZIndex: =6
+
+        Subtitle2_2 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Estado de Acta'.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =350
+            X: =1502
+            Y: =5
+            ZIndex: =7
+
+        Subtitle2_3 As label:
+            Height: =100
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =10
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Participantes
+            VerticalAlign: =VerticalAlign.Top
+            Width: =450
+            X: =1050
+            Y: =5
+            ZIndex: =8
+
+    TextInput1_29 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Número de Acta"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =300
+        Y: =99
+        ZIndex: =7
+
+    TextInput1_30 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Cliente"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =400
+        X: =300
+        Y: =99
+        ZIndex: =8
+
+    TextInput1_31 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Fecha de Ingreso"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =350
+        X: =700
+        Y: =99
+        ZIndex: =9
+
+    TextInput1_32 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Participantes"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =450
+        X: =1050
+        Y: =99
+        ZIndex: =10
+
+    TextInput1_33 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: ="Estado"
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =350
+        X: =1500
+        Y: =99
+        ZIndex: =11
+
+    TextInput1_34 As text:
+        BorderColor: =Color3.Fill
+        BorderThickness: =1
+        Color: =Color2.Fill
+        Default: =""
+        Fill: =Color1.Fill
+        FocusedBorderThickness: =0
+        Font: =AppFont.Font
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Width: =70
+        X: =1850
+        Y: =99
+        ZIndex: =12
+

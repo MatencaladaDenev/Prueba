@@ -1,0 +1,7 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(usuario, User());
+        Set(admin, usuario.Email in LookUp('Demo Configuraciones',Título = "Administradores").Usuario.Email)
+    StartScreen: =If(IsBlank(Param("ActaID")), 'Página de Inicio', 'Visualizador de Acta')
+

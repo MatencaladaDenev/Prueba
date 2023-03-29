@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "mis_tareas",
+    "Type": "CollectionDataSourceInfo"
+  }
+]
